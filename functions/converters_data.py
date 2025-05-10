@@ -18,4 +18,3 @@ def convert_bs4_to_string(bs4_object_list):
 def convert_bs4_to_int(bs4_object_list):
     # Converter para lista
     return int(bs4_object_list.get_text().strip())
-
