@@ -13,8 +13,21 @@ def convert_bs4_to_float(bs4_object_list):
 
 def convert_bs4_to_string(bs4_object_list):
     # Converter para string
-    return bs4_object_list.get_text().strip()
+    converted_title = []
+    for price in bs4_object_list:
+        text = price.get_text()
+        number = str(text)
+        converted_title.append(number)
+
+    return converted_title
 
 def convert_bs4_to_int(bs4_object_list):
     # Converter para lista
-    return int(bs4_object_list.get_text().strip())
+    converted_int = []
+    for price in bs4_object_list:
+        text = price.get_text().strip()  # Ex: 'R$ 1.299,99'
+        #text = text.replace('R$', '').replace('.', '').replace(',', '.').strip()  # '1299.99'
+        number = int(text)
+        converted_int.append(number)
+
+    return converted_int # [1299.99, 2499.50, 999.00]

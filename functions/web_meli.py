@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 import time
 
 # Importações Locais
-from converters_data import convert_bs4_to_float
+from functions.converters_data import convert_bs4_to_float, convert_bs4_to_string
 
 # Configurações para a não abertura da janela
 chrome_options = Options()
@@ -80,7 +80,7 @@ def titulo(soup):
 
     list_titles = soup.find_all(element, class_=class_name)
 
-    return list_titles
+    return convert_bs4_to_string(list_titles)
 
 
 
